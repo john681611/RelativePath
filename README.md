@@ -2,6 +2,7 @@
 
 This is the README for your extension "relativepath". After writing up a brief description, we recommend including the following sections.
 
+Inspired by [relative-path-and-line by bgse](https://github.com/bgse/relative-path-and-line)
 ## Features
 
 Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
