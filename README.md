@@ -21,7 +21,7 @@ I'm still figuring out how to test this so probbably.
 
 Users appreciate release notes as you update your extension.
 
-### 0.0.1
+### 0.0.4
  Inital Test Release
 
  * All features

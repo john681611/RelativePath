@@ -2,8 +2,9 @@
     "name": "relativepath",
     "displayName": "RelativePath",
     "description": "Add Relative Path to Explorer context menu",
-    "version": "0.0.2",
+    "version": "0.0.4",
     "publisher": "john681611",
+    "repository": "https://github.com/john681611/RelativePath.git",
     "engines": {
         "vscode": "^1.20.0"
     },
