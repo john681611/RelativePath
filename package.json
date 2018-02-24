@@ -5,6 +5,14 @@
     "version": "0.0.4",
     "publisher": "john681611",
     "repository": "https://github.com/john681611/RelativePath.git",
+    "icon": "icon.png",
+    "keywords": [
+        "copy",
+        "relative",
+        "path",
+        "url",
+        "file"
+    ],
     "engines": {
         "vscode": "^1.20.0"
     },
@@ -20,6 +28,14 @@
             {
                 "command": "extension.copyRelPath",
                 "title": "Copy Relative Path"
+            }
+        ],
+        "keybindings": [
+            {
+                "command": "extension.copyRelPath",
+                "key": "ctrl+shift+r",
+                "mac": "cmd+shift+r",
+                "when": "editorTextFocus"
             }
         ],
         "menus": {

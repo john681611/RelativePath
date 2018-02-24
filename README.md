@@ -8,6 +8,10 @@ That it.
 
 [![https://gyazo.com/e63f69eb661a65052eb76edcfb4e8860](https://i.gyazo.com/e63f69eb661a65052eb76edcfb4e8860.gif)](https://gyazo.com/e63f69eb661a65052eb76edcfb4e8860)
 
+Supports multi-select!
+
+[![https://gyazo.com/8ab6f3c68a95bbb15168e85008279ca3](https://i.gyazo.com/8ab6f3c68a95bbb15168e85008279ca3.gif)](https://gyazo.com/8ab6f3c68a95bbb15168e85008279ca3)
+
 ## Requirements
 
 none
