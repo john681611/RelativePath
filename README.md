@@ -25,7 +25,13 @@ I'm still figuring out how to test this so probbably.
 
 Users appreciate release notes as you update your extension.
 
+ ### 0.0.5
+ * Added Keybind `ctrl+shift+r` or `cmd+shift+r`
+ * Improved docs
+
 ### 0.0.4
  Inital Test Release
 
- * All features
+ * Basic context menu command
+
+
