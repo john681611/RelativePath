@@ -32,7 +32,7 @@
             },
             {
                 "command": "extension.copyRelPathFoc",
-                "title": "Copy Relative Path Focus"
+                "title": "Copy Relative Path to File"
             }
         ],
         "keybindings": [
@@ -40,7 +40,7 @@
                 "command": "extension.copyRelPath",
                 "key": "ctrl+shift+r",
                 "mac": "cmd+shift+r",
-                "when": "editorTextFocus"
+                "when": "explorerViewletVisible"
             }
         ],
         "menus": {
