@@ -11,6 +11,8 @@
             "request": "launch",
             "runtimeExecutable": "${execPath}",
             "args": [
+                "${workspaceFolder}/src/",
+                "${workspaceFolder}/src/test/mock/mock.ts",
                 "--extensionDevelopmentPath=${workspaceFolder}"
             ],
             "outFiles": [
@@ -24,6 +26,8 @@
             "request": "launch",
             "runtimeExecutable": "${execPath}",
             "args": [
+                "${workspaceFolder}/src/",
+                "${workspaceFolder}/src/test/mock/mock.ts",
                 "--extensionDevelopmentPath=${workspaceFolder}",
                 "--extensionTestsPath=${workspaceFolder}/out/test"
             ],
