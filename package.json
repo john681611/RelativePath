@@ -2,7 +2,7 @@
     "name": "relativepath",
     "displayName": "RelativePath",
     "description": "Add Relative Path to Explorer context menu",
-    "version": "0.0.5",
+    "version": "0.1.0",
     "publisher": "john681611",
     "repository": "https://github.com/john681611/RelativePath.git",
     "icon": "icon.png",
