@@ -1,13 +1,21 @@
 import * as vscode from 'vscode';
 import * as utils from './utils';
 
-const getRelPaths = (files: Array<vscode.Uri>, workspace: vscode.WorkspaceFolder) => {
+const getRelPaths = (files: Array<vscode.Uri>, workspace: vscode.WorkspaceFolder, hideExtension: boolean = true) => {
   if(files.length){
       
       if(workspace){
           const regex = new RegExp(workspace.uri.path,'g');
-
-          const relPaths =files.map((element: vscode.Uri) => element.path.replace(regex,''));
+          let relPaths =files.map((element: vscode.Uri) => {
+            let relPath = element.path.replace(regex,'');
+            if(hideExtension){
+              let relPathParts = relPath.split('.');
+              relPathParts.pop();
+              relPath = relPathParts.join('.');
+            }
+            return relPath;
+          });
+          
           return relPaths;
       }else{
           vscode.window.showErrorMessage('Cant find workspace');
