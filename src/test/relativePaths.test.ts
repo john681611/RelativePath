@@ -3,10 +3,12 @@ import * as relativePaths from './../relativePaths';
 import * as vscode from 'vscode';
 
 suite("RelativePaths", () => {
+
+  const root = __dirname.replace('/out/test', '');
   const files = [
-    vscode.Uri.file(`${process.cwd()}/RelativePath/src/test/mock/next.ts`),
-    vscode.Uri.file(`${process.cwd()}/RelativePath/src/test/mock/nest/nest.ts`),
-    vscode.Uri.file(`${process.cwd()}/RelativePath/src/commands.js`)
+    vscode.Uri.file(`${root}/src/test/mock/next.ts`),
+    vscode.Uri.file(`${root}/src/test/mock/nest/nest.ts`),
+    vscode.Uri.file(`${root}/src/commands.js`)
   ];
 
   const relPaths =  [
@@ -20,40 +22,42 @@ suite("RelativePaths", () => {
     '/test/mock/nest/nest.ts',
     '/commands.js'
   ];
-
-  const workspace = vscode.workspace.getWorkspaceFolder(files[0]);
-  if(!workspace){
+  console.log(__dirname);
+  const workspaceFolder = vscode.workspace.getWorkspaceFolder(files[0]);
+  if(!workspaceFolder){
     console.error('workspace fail');
     return;
   }
 
+  const WorkspaceFolderPath = workspaceFolder.uri.path
+
   suite("getRelPaths", () => {
 
     test("should get basic relative path to workspace", () => {
-      assert.equal(relativePaths.getRelPaths(files, workspace),relPaths);
+      assert.deepEqual(relativePaths.getRelPaths(files, WorkspaceFolderPath),relPaths);
     });
 
-    test("should get basic relative path to workspace with extensions", () => {
-      assert.equal(relativePaths.getRelPaths(files, workspace, false),relPathsWExtension);
+    test.skip("should get basic relative path to workspace with extensions //NEED TO FIGURE OUT HOW TO STUB THIS", () => {
+      assert.deepEqual(relativePaths.getRelPaths(files, WorkspaceFolderPath),relPathsWExtension);
     });
   });
   
   suite("getFocusedRelativePaths", () => {
     test("should remove based on regex and split by /", () => {
-      assert.equal(relativePaths.getFocusedRelativePaths(relPaths, workspace),
+      assert.deepEqual(relativePaths.getFocusedRelativePaths(relPaths, WorkspaceFolderPath),
       [
-        './next.ts',
+        './next',
         './nest/nest',
         '../../commands'
       ]);
     });
 
     test("should remove based on regex and split by / and not bothered by extensions", () => {
-      assert.equal(relativePaths.getFocusedRelativePaths(relPathsWExtension, workspace),
+      assert.deepEqual(relativePaths.getFocusedRelativePaths(relPathsWExtension, WorkspaceFolderPath),
       [
         './next.ts',
-        './nest/nest',
-        '../../commands'
+        './nest/nest.ts',
+        '../../commands.js'
       ]);
     });
   });

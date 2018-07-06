@@ -1,37 +1,33 @@
 import * as vscode from 'vscode';
 import * as utils from './utils';
 
-const getRelPaths = (files: Array<vscode.Uri>, workspace: vscode.WorkspaceFolder, hideExtension: boolean = true) => {
+const getRelPaths = (files: Array<vscode.Uri>, workspaceFolderPath: string) => {
   if(files.length){
-      
-      if(workspace){
-          const regex = new RegExp(workspace.uri.path,'g');
-          let relPaths =files.map((element: vscode.Uri) => {
-            let relPath = element.path.replace(regex,'');
-            if(hideExtension){
-              let relPathParts = relPath.split('.');
-              relPathParts.pop();
-              relPath = relPathParts.join('.');
-            }
-            return relPath;
-          });
-          
-          return relPaths;
-      }else{
-          vscode.window.showErrorMessage('Cant find workspace');
+        const excludeFileExtension = vscode.workspace.getConfiguration('relPath', null).get('excludeFileExtension') || true;
+        const regex = new RegExp(workspaceFolderPath, 'g');
+        let relPaths =files.map((element: vscode.Uri) => {
+        let relPath = element.path.replace(regex,'');
+        if(excludeFileExtension){
+            let relPathParts = relPath.split('.');
+            relPathParts.pop();
+            relPath = relPathParts.join('.');
+        }
+        return relPath;
+        });
+        
+        return relPaths;
+    }else{
+        vscode.window.showErrorMessage('Cant find workspace');
       }
-  } else {
-      vscode.window.showErrorMessage('Could not copy');
-  }
   return null;
 };
 
-const getFocusedRelativePaths = (relPaths: Array<string>, workspace: vscode.WorkspaceFolder) => {
+const getFocusedRelativePaths = (relPaths: Array<string>, workspaceFolderPath: string) => {
   const activeTextEditor = vscode.window.activeTextEditor;
   if(activeTextEditor) {
-      const focusedFile = activeTextEditor.document.fileName.replace(workspace.uri.path,'');
+      const focusedFile = activeTextEditor.document.fileName.replace(workspaceFolderPath,'');
         return relPaths.map((path: string) => {
-          const regex = new RegExp(utils.sharedStart([path.replace(workspace.uri.path,''), focusedFile]).slice(0, -1),'g');
+          const regex = new RegExp(utils.sharedStart([path.replace(workspaceFolderPath,''), focusedFile]).slice(0, -1),'g');
           const focusedFileParts = utils.removeInPathAndSplit(focusedFile, regex);
           let pathParts = utils.removeInPathAndSplit(path, regex);
 

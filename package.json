@@ -24,18 +24,6 @@
         "onCommand:extension.copyRelPathFoc"
     ],
     "main": "./out/extension",
-    "configuration": {
-        "type": "object",
-        "title": "RelativePath",
-        "properties": {
-            "relPath.excludeFileExtension": {
-                "scope": "resource",
-                "type": "boolean",
-                "default": true,
-                "description": "Controls the excludes the extension of a file in the path"
-            }
-        }
-    },
     "contributes": {
         "commands": [
             {
@@ -47,6 +35,18 @@
                 "title": "Copy Relative Path to File"
             }
         ],
+        "configuration": {
+            "type": "object",
+            "title": "RelativePath",
+            "properties": {
+                "relPath.excludeFileExtension": {
+                    "scope": "resource",
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Controls the excludes the extension of a file in the path"
+                }
+            }
+        },
         "keybindings": [
             {
                 "command": "extension.copyRelPath",
