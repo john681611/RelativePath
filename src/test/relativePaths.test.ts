@@ -1,7 +1,7 @@
 import * as assert from 'assert';
 import * as relativePaths from './../relativePaths';
 import * as vscode from 'vscode';
-import * as sinon from 'sinon';
+// import * as sinon from 'sinon';
 
 suite("RelativePaths", () => {
 
@@ -38,14 +38,14 @@ suite("RelativePaths", () => {
       assert.deepEqual(relativePaths.getRelPaths(files, WorkspaceFolderPath),relPaths);
     });
 
-    test("should get basic relative path to workspace with extensions", () => {
-      sinon.stub(vscode.workspace, 'getConfiguration').returns({
-        excludeFileExtension: false,
-        get: () => false
-      });
-      assert.deepEqual(relativePaths.getRelPaths(files, WorkspaceFolderPath),relPathsWExtension);
-      sinon.restore();
-    });
+    // test("should get basic relative path to workspace with extensions", () => {
+    //   sinon.stub(vscode.workspace, 'getConfiguration').returns({
+    //     excludeFileExtension: false,
+    //     get: () => false
+    //   });
+    //   assert.deepEqual(relativePaths.getRelPaths(files, WorkspaceFolderPath),relPathsWExtension);
+    //   sinon.restore();
+    // });
   });
   
   suite("getFocusedRelativePaths", () => {
