@@ -23,6 +23,9 @@ Windows ones probs.
 
 ## Release Notes
 
+### 0.1.1
+* Added: auto exclude file extensions (can be ignored with setting)
+
 ### 0.1.0
 * Added: `Copy Relative to File` - gets relative file to your focused file
 * Added: basic automated testing
