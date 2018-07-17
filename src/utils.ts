@@ -24,8 +24,14 @@ const copy = (relPaths: Array<string>) =>  {
   }
 };
 
+const getWorkspaceFolderPath = (file: vscode.Uri) => {
+  const workspaceFolder = vscode.workspace.getWorkspaceFolder(file);
+  return workspaceFolder? workspaceFolder.uri.path : null;
+};
+
 export {
   sharedStart,
   removeInPathAndSplit,
-  copy
+  copy,
+  getWorkspaceFolderPath
 };

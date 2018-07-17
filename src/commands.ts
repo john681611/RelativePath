@@ -3,26 +3,20 @@ import * as utils from './utils';
 import * as relativePath from './relativePaths';
 
 const copyRelPath = (res: Object, files: Array<vscode.Uri>) => {
-  const workspace = vscode.workspace.getWorkspaceFolder(files[0]);
-  if(workspace){
-      const relPaths = relativePath.getRelPaths(files, workspace);
-      if(relPaths){
-          utils.copy(relPaths);
-      }
-  }
+    const workspaceFolderPath =  utils.getWorkspaceFolderPath(files[0]);
+    if(workspaceFolderPath) {
+        const relativePaths = relativePath.getRelPaths(files, workspaceFolderPath);
+        if(relativePaths) {utils.copy(relativePaths);} 
+    }
 };
 
 const copyRelPathFoc = (res: Object, files: Array<vscode.Uri>) => {
-  const workspace = vscode.workspace.getWorkspaceFolder(files[0]);
-  if(workspace){
-      const relPaths = relativePath.getRelPaths(files, workspace);
-      if(relPaths){
-          const focusedRelativePath = relativePath.getFocusedRelativePaths(relPaths, workspace);
-          if(focusedRelativePath) {
-              utils.copy(focusedRelativePath);
-          }
-      }
-  }
+    const workspaceFolderPath =  utils.getWorkspaceFolderPath(files[0]);
+    const relPaths =  workspaceFolderPath ? relativePath.getRelPaths(files, workspaceFolderPath) : null; 
+    if(relPaths && workspaceFolderPath){
+        const focusedRelativePath = relativePath.getFocusedRelativePaths(relPaths, workspaceFolderPath);
+        if(focusedRelativePath) {utils.copy(focusedRelativePath);}
+    }
 };
 
 export {
