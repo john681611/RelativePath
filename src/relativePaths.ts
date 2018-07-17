@@ -3,7 +3,7 @@ import * as utils from './utils';
 
 const getRelPaths = (files: Array<vscode.Uri>, workspaceFolderPath: string) => {
   if(files.length){
-        const excludeFileExtension = vscode.workspace.getConfiguration('relPath', null).get('excludeFileExtension') || true;
+        const excludeFileExtension = vscode.workspace.getConfiguration('relPath', null).get('excludeFileExtension');
         const regex = new RegExp(workspaceFolderPath, 'g');
         let relPaths =files.map((element: vscode.Uri) => {
         let relPath = element.path.replace(regex,'');

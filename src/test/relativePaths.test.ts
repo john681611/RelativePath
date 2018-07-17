@@ -1,6 +1,7 @@
 import * as assert from 'assert';
 import * as relativePaths from './../relativePaths';
 import * as vscode from 'vscode';
+import * as sinon from 'sinon';
 
 suite("RelativePaths", () => {
 
@@ -22,14 +23,14 @@ suite("RelativePaths", () => {
     '/test/mock/nest/nest.ts',
     '/commands.js'
   ];
-  console.log(__dirname);
+
   const workspaceFolder = vscode.workspace.getWorkspaceFolder(files[0]);
   if(!workspaceFolder){
     console.error('workspace fail');
     return;
   }
 
-  const WorkspaceFolderPath = workspaceFolder.uri.path
+  const WorkspaceFolderPath = workspaceFolder.uri.path;
 
   suite("getRelPaths", () => {
 
@@ -37,8 +38,13 @@ suite("RelativePaths", () => {
       assert.deepEqual(relativePaths.getRelPaths(files, WorkspaceFolderPath),relPaths);
     });
 
-    test.skip("should get basic relative path to workspace with extensions //NEED TO FIGURE OUT HOW TO STUB THIS", () => {
+    test("should get basic relative path to workspace with extensions", () => {
+      sinon.stub(vscode.workspace, 'getConfiguration').returns({
+        excludeFileExtension: false,
+        get: () => false
+      });
       assert.deepEqual(relativePaths.getRelPaths(files, WorkspaceFolderPath),relPathsWExtension);
+      sinon.restore();
     });
   });
   
