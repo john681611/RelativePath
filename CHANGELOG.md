@@ -1,5 +1,8 @@
 # Change Log
 
+### 0.1.2
+* Remove: Basic relative path copy as released in VSCode 1.26.0 
+
 ### 0.1.1
 * Added: auto exclude file extensions (can be ignored with setting)
 

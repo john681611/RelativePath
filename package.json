@@ -2,7 +2,7 @@
     "name": "relativepath",
     "displayName": "RelativePath",
     "description": "Add Relative Path to Explorer context menu",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "publisher": "john681611",
     "repository": "https://github.com/john681611/RelativePath.git",
     "icon": "icon.png",
@@ -20,16 +20,11 @@
         "Other"
     ],
     "activationEvents": [
-        "onCommand:extension.copyRelPath",
         "onCommand:extension.copyRelPathFoc"
     ],
     "main": "./out/extension",
     "contributes": {
         "commands": [
-            {
-                "command": "extension.copyRelPath",
-                "title": "Copy Relative Path"
-            },
             {
                 "command": "extension.copyRelPathFoc",
                 "title": "Copy Relative Path to File"
@@ -49,7 +44,7 @@
         },
         "keybindings": [
             {
-                "command": "extension.copyRelPath",
+                "command": "extension.copyRelPathFoc",
                 "key": "ctrl+shift+r",
                 "mac": "cmd+shift+r",
                 "when": "explorerViewletVisible"
@@ -57,10 +52,6 @@
         ],
         "menus": {
             "explorer/context": [
-                {
-                    "command": "extension.copyRelPath",
-                    "group": "5_cutcopypaste@999"
-                },
                 {
                     "command": "extension.copyRelPathFoc",
                     "group": "5_cutcopypaste@9999"
