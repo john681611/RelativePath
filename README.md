@@ -24,6 +24,10 @@ Windows ones probs.
 
 ## Release Notes
 
+### 0.1.3
+* Fix issue with focused file causing odd outputs
+* Simplified some code
+
 ### 0.1.2
 * Remove: Basic relative path copy as released in VSCode 1.26.0 
 
@@ -42,5 +46,3 @@ Windows ones probs.
  Inital Test Release
 
  * Basic context menu command
-
-
