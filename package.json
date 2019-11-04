@@ -14,7 +14,7 @@
         "file"
     ],
     "engines": {
-        "vscode": "^1.20.0"
+        "vscode": "^1.39.2"
     },
     "categories": [
         "Other"
@@ -67,11 +67,11 @@
         "test": "npm run compile && node ./node_modules/vscode/bin/test"
     },
     "devDependencies": {
-        "@types/mocha": "^2.2.42",
-        "@types/node": "^7.0.43",
-        "tslint": "^5.8.0",
-        "typescript": "^2.6.1",
-        "vscode": "^1.1.6"
+        "@types/mocha": "^5.2.7",
+        "@types/node": "^12.12.5",
+        "tslint": "^5.20.0",
+        "typescript": "^3.6.4",
+        "vscode": "^1.1.36"
     },
     "dependencies": {
         "copy-paste": "^1.3.0"
