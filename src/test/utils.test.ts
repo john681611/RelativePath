@@ -19,4 +19,18 @@ suite("Utils", () => {
     });
   });
 
+  suite('removeFileExtentions', () => {
+    test('should remove file extentions from string path', () => {
+      assert.equal(utils.removeFileExtentions('bob1234/kev/file.css'),'bob1234/kev/file');
+    });
+
+    test('should remove file extentions from string path if . is used within the file name', () => {
+      assert.equal(utils.removeFileExtentions('bob1234/kev/file.test.css'),'bob1234/kev/file.test');
+    });
+
+    test('should remove file extentions from string path if . is used within the folder names', () => {
+      assert.equal(utils.removeFileExtentions('bob1234/kev.larry/file.test.css'),'bob1234/kev.larry/file.test');
+    });
+  });
+
 });
